@@ -23,6 +23,7 @@ const userRoutes = require('./routes/users');
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelpCamp';
 const secret = process.env.SECRET || 'thisisasecret!';
+const PORT = process.env.PORT || 3000;
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true, 
@@ -161,6 +162,6 @@ app.use((err, req, res, next) => {
     res.status(status).render('error', { err });
 });
 
-app.listen(3000, () => {
-    console.log('Serving on port 3000')
+app.listen(PORT, () => {
+    console.log(`Serving on port ${PORT}`)
 });
